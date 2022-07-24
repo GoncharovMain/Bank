@@ -1,0 +1,6 @@
+Bank/bin/*
+Bank/obj/*
+Bank/bank.db
+
+Store/bin/*
+Store/obj/*
