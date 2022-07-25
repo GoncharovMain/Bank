@@ -24,7 +24,7 @@ namespace Store
 
         public void CreateOrderPost(Order order)
         {
-            string url = _origin + "api/order/create-order";
+            string url = _origin + "api/create-order";
 
             HttpResponseMessage response = _client
                 .PostAsync(url, GetJsonContent<Order>(order)).Result;
@@ -36,7 +36,7 @@ namespace Store
 
         public void GetStatusPost(int id)
         {
-            string url = _origin + $"api/order/get-status/{id}";
+            string url = _origin + $"api/get-status/{id}";
 
             HttpResponseMessage response = _client.GetAsync(url).Result;
 

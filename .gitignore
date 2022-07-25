@@ -1,6 +1,8 @@
 Bank/bin/*
 Bank/obj/*
 Bank/bank.db
+Bank/bank.db-shm
+Bank/bank.db-wal
 
 Store/bin/*
 Store/obj/*

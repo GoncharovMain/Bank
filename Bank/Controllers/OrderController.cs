@@ -6,7 +6,7 @@ using Bank.Models;
 namespace Bank.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class OrderController : ControllerBase
     {
         private readonly ILogger<OrderController> _logger;
@@ -32,6 +32,8 @@ namespace Bank.Controllers
 
             order.ResultStatus = Status.Process;
 
+            _db.Orders.Add(order);
+
             // имитируем нагрузку/задержку
             Thread.Sleep(GetRandomMillisecond());
 
@@ -45,7 +47,6 @@ namespace Bank.Controllers
                 card.Score -= order.DebitAmount;
             }
 
-            _db.Orders.Add(order);
             _db.SaveChanges();
 
             _logger.LogInformation($"DebitAmout: {order.DebitAmount} Score: {card.Score} Status order: {order.ResultStatus}.");
