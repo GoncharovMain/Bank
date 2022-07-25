@@ -11,10 +11,6 @@ namespace Bank.Models
         public BankContext(DbContextOptions<BankContext> options)
             : base(options)
         {
-
-            // Console.WriteLine($"HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-            // Database.EnsureDeleted();
-
             if (Database.EnsureCreated())
             {
                 Cards.Add(new Card { CardId = 1, Score = 50000m });

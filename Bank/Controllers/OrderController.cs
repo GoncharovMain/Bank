@@ -11,14 +11,10 @@ namespace Bank.Controllers
     {
         private readonly ILogger<OrderController> _logger;
         private BankContext _db;
-        private Random _random;
-
         public OrderController(BankContext context, ILogger<OrderController> logger)
         {
             _logger = logger;
             _db = context;
-
-            _random = new Random();
         }
 
         [HttpPost]
@@ -75,7 +71,8 @@ namespace Bank.Controllers
 
         private int GetRandomMillisecond()
         {
-            return _random.Next(2, 7) * 1000;
+            Random random = new Random();
+            return random.Next(2, 7) * 1000;
         }
     }
 }
